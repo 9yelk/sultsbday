@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>HAPPY BDAY SULTY!!</title>
+  <title>HAPPY BDAY QUEENRAYHANARUBY!!</title>
 
   <style>
     body {
@@ -128,7 +128,6 @@
       background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Filled_heart.svg/1024px-Filled_heart.svg.png')
         no-repeat center/contain;
 
-      /* Pink hearts */
       filter: hue-rotate(315deg) saturate(1.5);
     }
 
@@ -136,7 +135,6 @@
       background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Star_icon-72a7cf.svg/1024px-Star_icon-72a7cf.svg.png')
         no-repeat center/contain;
 
-      /* Pink sparkles */
       filter: hue-rotate(315deg) saturate(1.4);
     }
 
@@ -156,11 +154,12 @@
       }
     }
 
-    /* INTRO PHOTO */
+    /* INTRO PHOTOS */
     .intro-photos {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 40px;
       margin-top: 80px;
       padding: 20px;
       position: relative;
@@ -169,7 +168,7 @@
 
     .intro-photos img {
       width: 85%;
-      max-width: 900px;
+      max-width: 750px;
       border-radius: 30px;
 
       box-shadow:
@@ -250,10 +249,12 @@
 <!-- LOADING -->
 
 <div id="loading-screen">
+
   <div class="bow-left"></div>
   <div class="bow-right"></div>
 
   <img src="pinkribbon.png" alt="Ribbon">
+
 </div>
 
 <!-- FLOATING + GLITTER -->
@@ -261,11 +262,13 @@
 <script>
 
 function createFloatingElement(type) {
+
   const el = document.createElement("div");
 
   el.className = type;
 
-  el.style.left = Math.random() * 100 + "vw";
+  el.style.left =
+    Math.random() * 100 + "vw";
 
   el.style.animationDuration =
     6 + Math.random() * 4 + "s";
@@ -334,15 +337,13 @@ window.addEventListener("load", () => {
 
 </script>
 
-<!-- ONE TOP PHOTO -->
+<!-- TWO PHOTOS -->
 
 <section class="intro-photos">
 
-<img
-src="topimage.png"
-alt="Birthday Photo"
+  <img src="firstpicture.png" alt="Photo 1">
 
->
+  <img src="secondpicture.png" alt="Photo 2">
 
 </section>
 
@@ -369,11 +370,7 @@ HAPPY BIRTHDAY ONCE AGAIN SULTY! we are writing this to celebrate ur 9th birthda
 
 <div class="cake">
 
-<img
-src="sultcake.png"
-alt="Cake"
-
->
+  <img src="sultcake.png" alt="Cake">
 
 </div>
 
