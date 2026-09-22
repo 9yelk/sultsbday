@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HAPPY BDAY SULTY!!</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', cursive, sans-serif;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(to bottom, #ffd6e5, #fff5f9);
+      overflow-x: hidden;
+    }
+
+    /* GLITTER BACKGROUND */
+    .glitter {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+      z-index: 0;
+      box-shadow: 0 0 6px rgba(255,255,255,0.9);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    /* LOADING SCREEN */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffd6e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #loading-screen img {
+      width: 300px;
+      animation: bowBounce 1s infinite;
+      z-index: 10000;
+    }
+
+    @keyframes bowBounce {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .bow-left,
+    .bow-right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: #ffd6e5;
+    }
+
+    .bow-left {
+      left: 0;
+    }
+
+    .bow-right {
+      right: 0;
+    }
+
+    .bow-left.animate {
+      animation: slideLeft 2s forwards;
+    }
+
+    .bow-right.animate {
+      animation: slideRight 2s forwards;
+    }
+
+    @keyframes slideLeft {
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes slideRight {
+      to {
+        transform: translateX(100%);
+      }
+    }
+
+    /* FLOATING ELEMENTS */
+    .heart,
+    .sparkle {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      opacity: 0.8;
+      animation: floatUp 8s linear infinite;
+      z-index: 1;
+    }
+
+    .heart {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Filled_heart.svg/1024px-Filled_heart.svg.png')
+        no-repeat center/contain;
+
+      /* Pink hearts */
+      filter: hue-rotate(315deg) saturate(1.5);
+    }
+
+    .sparkle {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Star_icon-72a7cf.svg/1024px-Star_icon-72a7cf.svg.png')
+        no-repeat center/contain;
+
+      /* Pink sparkles */
+      filter: hue-rotate(315deg) saturate(1.4);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* INTRO PHOTO */
+    .intro-photos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 80px;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-photos img {
+      width: 85%;
+      max-width: 900px;
+      border-radius: 30px;
+
+      box-shadow:
+        0 0 35px rgba(255, 255, 255, 0.9),
+        0 10px 30px rgba(214, 100, 145, 0.2);
+
+      border: 6px solid rgba(255, 255, 255, 0.85);
+    }
+
+    /* LETTER */
+    .letter {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px 30px;
+
+      background: rgba(255, 255, 255, 0.92);
+
+      border-radius: 30px;
+
+      color: #5c3043;
+
+      font-size: 1.2rem;
+      line-height: 1.8;
+
+      border: 3px solid rgba(255, 182, 205, 0.8);
+
+      box-shadow:
+        0 10px 35px rgba(214, 100, 145, 0.18);
+
+      white-space: pre-line;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .letter h1 {
+      color: #e56b96;
+      font-size: 2.5rem;
+
+      text-shadow:
+        0 2px 8px rgba(229, 107, 150, 0.2);
+    }
+
+    /* CAKE */
+    .cake img {
+      width: 500px;
+      max-width: 90%;
+
+      margin: 40px auto 80px;
+
+      display: block;
+
+      animation: bounce 2s infinite;
+
+      filter:
+        drop-shadow(0 0 20px rgba(255,255,255,0.9))
+        drop-shadow(0 10px 20px rgba(214, 100, 145, 0.2));
+
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- LOADING -->
+
+<div id="loading-screen">
+  <div class="bow-left"></div>
+  <div class="bow-right"></div>
+
+  <img src="pinkribbon.png" alt="Ribbon">
+</div>
+
+<!-- FLOATING + GLITTER -->
+
+<script>
+
+function createFloatingElement(type) {
+  const el = document.createElement("div");
+
+  el.className = type;
+
+  el.style.left = Math.random() * 100 + "vw";
+
+  el.style.animationDuration =
+    6 + Math.random() * 4 + "s";
+
+  document.body.appendChild(el);
+
+  setTimeout(() => el.remove(), 10000);
+}
+
+
+setInterval(() => {
+
+  createFloatingElement(
+    Math.random() > 0.5
+      ? "heart"
+      : "sparkle"
+  );
+
+}, 500);
+
+
+/* GLITTER */
+
+function createGlitter() {
+
+  const g = document.createElement("div");
+
+  g.className = "glitter";
+
+  g.style.left =
+    Math.random() * 100 + "vw";
+
+  g.style.animationDuration =
+    3 + Math.random() * 5 + "s";
+
+  document.body.appendChild(g);
+
+  setTimeout(() => g.remove(), 8000);
+}
+
+setInterval(createGlitter, 80);
+
+
+/* LOADING */
+
+window.addEventListener("load", () => {
+
+  document
+    .querySelector(".bow-left")
+    .classList.add("animate");
+
+  document
+    .querySelector(".bow-right")
+    .classList.add("animate");
+
+
+  setTimeout(() => {
+
+    document
+      .getElementById("loading-screen")
+      .style.display = "none";
+
+  }, 2000);
+
+});
+
+</script>
+
+<!-- ONE TOP PHOTO -->
+
+<section class="intro-photos">
+
+<img
+src="topimage.png"
+alt="Birthday Photo"
+
+>
+
+</section>
+
+<!-- LETTER -->
+
+<section class="letter">
+
+  <h1>HAPPY BDAY VANTRAXIA (AKA SULTAN)!!</h1>
+
+  <p>
+To: our lil sis
+<br>
+from: amz, rey, aaf
+21/09/26
+  </p>
+
+  <p>
+HAPPY BIRTHDAY ONCE AGAIN SULTY! we are writing this to celebrate ur 9th birthday, it's crazy how I knew about you since u were 2 and a baby reyyan would take care of. and now you're 9 and grown up and super brainrot roblox pro. and u also turned out to be mine n aaf's future lil sister. We've played roblox together since you were 6, and it's always been so much fun, esp all the goofy ahh stuff you'd do in brookhaven LMAO. That was peak, and we all made sm memories as a family together. Anyway we hope you enjoyed your birthday and had fun, your last single digit birthday since ur gonna turn TEN next year, 1 0. and it's also really good that u made effort to be a fulltime hijabi, me and aaf was really proud! may Allah bless you and the family and keep you all on the Straight path ameen, and make you a source of pride and joy for your family, be a good kid! And enjoy your oreo cake!
+  </p>
+
+</section>
+
+<!-- CAKE -->
+
+<div class="cake">
+
+<img
+src="sultcake.png"
+alt="Cake"
+
+>
+
+</div>
+
+</body>
+</html>
